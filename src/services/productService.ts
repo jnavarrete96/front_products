@@ -1,4 +1,5 @@
 import { type Product } from '../interfaces/product';
+import { type ApiResponse } from '../interfaces/ApiResponse';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -15,21 +16,21 @@ export const fetchProducts = async (): Promise<Product[]> => {
 // Crear un producto
 export const createProduct = async (
   product: Omit<Product, 'id' | 'created_at'>
-): Promise<Product> => {
+): Promise<ApiResponse<Product>> => {
   const res = await fetch(`${API_URL}/products`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(product),
   });
 
-  const data = await res.json();
+  const result = await res.json();
 
   if (!res.ok) {
     // Aquí usamos el mensaje que viene del backend
-    throw new Error(data.message || 'Error al crear el producto');
+    throw new Error(result.message || 'Error al crear el producto');
   }
 
-  return data;
+  return result;
 };
 
 // Eliminar un producto

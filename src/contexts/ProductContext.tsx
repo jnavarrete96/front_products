@@ -1,6 +1,7 @@
 import { createContext, useState, useMemo, useCallback, useEffect, type ReactNode } from 'react';
 import toast from 'react-hot-toast'
 import { type Product } from '../interfaces/product';
+import { type ApiResponse } from '../interfaces/ApiResponse';
 import * as productService from '../services/productService';
 
 type ProductContextType = {
@@ -28,8 +29,8 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   // Crear producto y actualizar estado
   const addProduct = useCallback(async (product: Omit<Product, 'id' | 'created_at'>) => {
     try {
-      const newProduct = await productService.createProduct(product);
-      setProducts(prev => [...prev, newProduct]);
+      const res: ApiResponse<Product> = await productService.createProduct(product);
+      setProducts(prev => [...prev, res.data]);
       toast.success('Producto creado correctamente')
     } catch (err) {
       console.error('Error al crear producto', err);
