@@ -1,4 +1,5 @@
 import { createContext, useState, useMemo, useCallback, useEffect, type ReactNode } from 'react';
+import toast from 'react-hot-toast'
 import { type Product } from '../interfaces/product';
 import * as productService from '../services/productService';
 
@@ -29,8 +30,17 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
     try {
       const newProduct = await productService.createProduct(product);
       setProducts(prev => [...prev, newProduct]);
+      toast.success('Producto creado correctamente')
     } catch (err) {
       console.error('Error al crear producto', err);
+      const message = err instanceof Error ? err.message : String(err)
+      if (message?.includes('ya existe')) {
+        toast.error('El producto ya existe')
+      } else if (message?.includes('Validation')) {
+        toast.error('Campos inválidos o incompletos')
+      } else {
+        toast.error('Error al crear producto')
+      }
     }
   }, []);
 

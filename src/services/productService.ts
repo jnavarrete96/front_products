@@ -21,11 +21,15 @@ export const createProduct = async (
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(product),
   });
-  if (!res.ok) {
-    throw new Error('Error al crear el producto');
-  }
+
   const data = await res.json();
-  return data.data;
+
+  if (!res.ok) {
+    // Aquí usamos el mensaje que viene del backend
+    throw new Error(data.message || 'Error al crear el producto');
+  }
+
+  return data;
 };
 
 // Eliminar un producto
