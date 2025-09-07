@@ -1,11 +1,13 @@
+import MainLayout from './layouts/MainLayout'
+import ProductsPage from './pages/ProductPage'
+
 function App() {
   return (
-    <div className="text-center p-6">
-      <h1 className="text-3xl font-bold text-blue-600">
-        App de Productos 🚀
-      </h1>
-    </div>
-  );
+    <MainLayout>
+      <ProductsPage />
+    </MainLayout>
+  )
 }
 
-export default App;
+export default App
+
