@@ -1,69 +1,62 @@
-# React + TypeScript + Vite
+# 📦 Frontend - Products App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación **React + TypeScript + Vite** para la gestión de productos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías utilizadas
 
-## Expanding the ESLint configuration
+- ⚛️ [React 19](https://react.dev/)
+- 🌀 [Vite 7](https://vitejs.dev/)
+- 📘 [TypeScript 5](https://www.typescriptlang.org/)
+- 🎨 [TailwindCSS 3](https://tailwindcss.com/)
+- 🔥 [react-hot-toast](https://react-hot-toast.com/) para notificaciones
+- 🖼️ [Lucide React](https://lucide.dev/) para íconos
+- ✅ [ESLint](https://eslint.org/) + [TypeScript ESLint](https://typescript-eslint.io/) para linting
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ⚙️ Configuración
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1. Clonar el repositorio:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/tuusuario/front_products.git
+cd front_products
+```  
+2. Instalar dependencias:
+
+```bash
+npm install
 ```
+3. Crear un archivo .env en la raíz:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+VITE_API_URL=http://localhost:3000/api
 ```
+4. Levantar el entorno de desarrollo:
+
+```bash
+npm run dev
+```
+---
+
+## 🛠️ Scripts disponibles
+
+- `npm run dev` – Inicia el servidor de desarrollo con Vite
+
+---
+
+## ✨ Funcionalidades
+
+✅ Listado de productos
+✅ Crear producto con validaciones en frontend y backend
+✅ Eliminar productos
+✅ Notificaciones elegantes con toasts
+✅ Manejo global de estado con Context API
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
