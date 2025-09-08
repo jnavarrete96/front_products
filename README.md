@@ -49,10 +49,10 @@ npm run dev
 
 ## ✨ Funcionalidades
 
-✅ Listado de productos
-✅ Crear producto con validaciones en frontend y backend
-✅ Eliminar productos
-✅ Notificaciones elegantes con toasts
+✅ Listado de productos  
+✅ Crear producto con validaciones en frontend y backend  
+✅ Eliminar productos  
+✅ Notificaciones elegantes con toasts  
 ✅ Manejo global de estado con Context API
 
 ---
